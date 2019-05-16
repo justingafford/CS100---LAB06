@@ -20,7 +20,7 @@ double Trunc::evaluate()
     return core->evaluate();
 }
 
-string Paren::evaluate()
+double Paren::evaluate()
 {
     string temp = "(" + core->stringify() + ")";
     return temp;
