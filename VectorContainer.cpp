@@ -1,14 +1,15 @@
 #include "VectorContainer.hpp"
-
+#include <vector>
+using namespace std;
 /* Pure Virtual Functions */
 // push the top pointer of the tree into container
- void add_element(Base* element)
+ void VectorContainer::add_element(Base* element)
  {
   vcontainer.push_back(element);
  }
         
 // iterate through trees and output the expressions (use stringify())
-void print()
+void VectorContainer::print()
 {
     for(int i=0; i<vcontainer.size(); i++)
     {
@@ -18,7 +19,7 @@ void print()
         
 // calls on the previously set sorting-algorithm. Checks if sort_function is not
 // null, throw exception if otherwise
-void sort()
+void VectorContainer::sort()
 {
     if(sort_function != NULL)
     {
@@ -34,7 +35,7 @@ void sort()
 
 /* Functions Needed to Sort */
 //switch tree locations
- void swap(int i, int j)
+ void VectorContainer::swap(int i, int j)
  {
     Base* temp = vcontainer.at(i);
     vcontainer.at(i) = vcontainer.at(j);
@@ -42,13 +43,13 @@ void sort()
  }
         
 // get top ptr of tree at index i
-Base* at(int i)
+Base* VectorContainer::at(int i)
 {
     return vcontainer.at(i);
 }
         
 // return container size
-int size()
+int VectorContainer::size()
 {
     return vcontainer.size();
 }
