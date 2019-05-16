@@ -15,35 +15,35 @@ class Decorator : public Base
 Class Ceil : public Decorator
 {
     public: 
-        Ceil(Base* core);
+        Ceil(Base* core) : Decorator(core){};
         virtual double evaluate(); 
 }
 
 Class Floor : public Decorator
 {
     public: 
-        Floor(Base* core);
+        Floor(Base* core) : Decorator(core){};
         virtual double evaluate(); 
 }
 
 Class Abs : public Decorator
 {
     public: 
-        Abs(Base* core);
+        Abs(Base* core) : Decorator(core){};
         virtual double evaluate(); 
 }
 
 Class Trunc : public Decorator
 {
     public: 
-        Trunc(Base* core);
+        Trunc(Base* core) : Decorator(core){};
         virtual std::string stringify(); 
 }
 
 Class Paren : public Decorator
 {
     public: 
-        Paren(Base* core);
+        Paren(Base* core) : Decorator(core){};
         virtual std::string stringify(); 
 }
 
