@@ -1,5 +1,5 @@
 #include <math.h>
-#include "base.h"
+#include "base.hpp"
 
 class Decorator : public Base
 {
