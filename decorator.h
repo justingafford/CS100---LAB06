@@ -55,7 +55,7 @@ class Paren : public Base
     public: 
         Paren(Base* cory) : core(cory){};
         string stringify() {};
-        string evaluate();
+        double evaluate();
 };
 
 #endif
