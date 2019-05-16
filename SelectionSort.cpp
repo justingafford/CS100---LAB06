@@ -9,6 +9,6 @@ void SelectionSort::sort(Container* container) {
 				index = j;
 			}
 		}
-		container->swap(i,min);
+		container->swap(i,index);
 	}
 }
