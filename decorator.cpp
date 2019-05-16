@@ -15,9 +15,9 @@ double Abs::evaluate()
     return abs(core->evaluate());
 }
 
-string Trunc::stringify()
+double Trunc::evaluate()
 {
-    return to_string(core->evaluate());
+    return core->evaluate();
 }
 
 string Paren::stringify()
