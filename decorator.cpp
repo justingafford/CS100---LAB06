@@ -1,5 +1,5 @@
 #include "decorator.h"
-
+#include <iostream>
 double Ceil::evaluate()
 {
     return ceil(core->evaluate());
@@ -20,8 +20,9 @@ double Trunc::evaluate()
     return core->evaluate();
 }
 
-string Paren::stringify()
+double Paren::evaluate()
 {
     string temp = "(" + core->stringify() + ")";
-    return temp;
+    cout << temp;
+    return 0;
 }
