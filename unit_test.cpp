@@ -72,7 +72,7 @@ TEST(DecoratorTest,ParenTest) {
      Sub* sub1 = new Sub(op2,op3);
      Paren* trunc1 = new Paren(sub1);
      Add* add1 = new Add(op1,trunc1);
-     EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)";
+     EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)");
 }
 
 TEST(VectorContainerTestSet, SwapTest) {
