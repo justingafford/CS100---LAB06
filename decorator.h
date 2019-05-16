@@ -7,54 +7,49 @@
 
 using namespace std;
 
-class Decorator : public Base
+
+class Ceil : public Base
 {
     protected:
         Base* core;
-
-    public:
-        Decorator(Base* core){};
-        virtual double evaluate() = 0;
-        virtual string stringify() = 0;
+    public: 
+        Ceil(Base* core) : core(cory){};
+        double evaluate();
 };
 
-class Ceil : public Decorator
+class Floor : public Base
 {
+    protected:
+        Base* core;
     public: 
-        Ceil(Base* core) : Decorator(core){};
+        Floor(Base* cory) : core(cory){};
         double evaluate();
-        string stringify() {};
 };
 
-class Floor : public Decorator
+class Abs : public Base
 {
+    protected:
+        Base* core;
     public: 
-        Floor(Base* core) : Decorator(core){};
+        Abs(Base* cory) : core(cory){};
         double evaluate();
-        string stringify() {};
-};
-
-class Abs : public Decorator
-{
-    public: 
-        Abs(Base* core) : Decorator(core){};
-        double evaluate();
-        string stringify() {};
 };
 
 class Trunc : public Decorator
 {
+    protected:
+        Base* core;
     public: 
-        Trunc(Base* core) : Decorator(core){};
-        double evaluate() {};
+        Trunc(Base* cory) : core(cory){};
         string stringify(); 
 };
 
 class Paren : public Decorator
 {
+    protected:
+        Base* core;
     public: 
-        Paren(Base* core) : Decorator(core){};
-        double evaluate() {};
+        Paren(Base* cory) : core(cory){};
         string stringify(); 
 };
 
