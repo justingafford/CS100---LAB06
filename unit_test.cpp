@@ -60,7 +60,7 @@ TEST(DecoratorTest,TruncTest) {
      Op* op3 = new Op(4);
      Sub* sub1 = new Sub(op2,op3);
      Trunc* trunc1 = new Trunc(sub1);
-     Add* add1 = new Op(op1,trunc1);
+     Add* add1 = new Add(op1,trunc1);
      EXPECT_EQ(add1->stringify(),"5+3");
      
 }
