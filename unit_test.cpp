@@ -54,7 +54,7 @@ TEST(DecoratorTest,TruncTest) {
      Op* op1 = new Op(5);
      Op* op2 = new Op(7);
      Op* op3 = new Op(4);
-     Sub* sub1 = Sub Op(op2,op3);
+     Sub* sub1 = new Sub Op(op2,op3);
      Trunc* trunc1 = new Trunc(sub1);
      Add* add1 = new Op(op1,sub1);
      
