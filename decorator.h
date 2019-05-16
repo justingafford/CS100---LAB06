@@ -22,27 +22,31 @@ class Ceil : public Decorator
 {
     public: 
         Ceil(Base* core) : Decorator(core){};
-        double evaluate(); 
+        double evaluate();
+        string stringify() {};
 };
 
 class Floor : public Decorator
 {
     public: 
         Floor(Base* core) : Decorator(core){};
-        double evaluate(); 
+        double evaluate();
+        string stringify() {};
 };
 
 class Abs : public Decorator
 {
     public: 
         Abs(Base* core) : Decorator(core){};
-        double evaluate(); 
+        double evaluate();
+        string stringify() {};
 };
 
 class Trunc : public Decorator
 {
     public: 
         Trunc(Base* core) : Decorator(core){};
+        double evaluate() {};
         string stringify(); 
 };
 
@@ -50,6 +54,7 @@ class Paren : public Decorator
 {
     public: 
         Paren(Base* core) : Decorator(core){};
+        double evaluate() {};
         string stringify(); 
 };
 
