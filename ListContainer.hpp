@@ -7,16 +7,18 @@
 #include <list>
 #include <iterator>
 
+using namespace std;
+
 class ListContainer : public Container
 {
     protected:
-        Sort* sort;
+        Sort* sortt;
         list<Base*> lcontainer;
 
     public:
         /* Constructors */
-        ListContainer() : s(nullptr) { };
-        ListContainer(Sort* function) : s(function) { };
+        ListContainer() : sortt(nullptr) { };
+        ListContainer(Sort* function) : sortt(function) { };
 
         /* Pure Virtual Functions */
         // push the top pointer of the tree into container
