@@ -24,7 +24,12 @@ TEST(DecoratorTest,CeilTest) {
     cout << "before ops"<< endl;
     Ceil* cop1 = new Ceil(op1);
     Ceil* cop2 = new Ceil(op2);
-    cout << "after ops"<< endl;   
+    cout << "after ops"<< endl;
+    VectorContainer* test_container = new VectorContainer();
+    
+    // Exercise some functionality of the  test elements
+    test_container->add_element(cop1);
+    test_container->add_element(cop2);
     ASSERT_EQ(cop1->evaluate(),-2.0);
     ASSERT_EQ(cop2->evaluate(),7.0);
 }
