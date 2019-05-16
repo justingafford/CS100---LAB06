@@ -15,12 +15,12 @@ virtual double Abs::evaluate()
     return abs(core->evaluate());
 }
 
-virtual string Trunc::stringnify()
+virtual string Trunc::stringify()
 {
     return to_string(core->evaluate());
 }
 
-virtual string Paren::stringnify()
+virtual string Paren::stringify()
 {
     return to_string("(" + core + ")");
 }
