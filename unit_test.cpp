@@ -17,6 +17,26 @@
 #include<iostream>
 using namespace std;
 
+TEST(DecoratorTest,CeilTest) {
+	
+}
+
+TEST(DecoratorTest,FloorTest) {
+	
+}
+
+TEST(DecoratorTest,AbsTest) {
+	
+}
+
+TEST(DecoratorTest,TruncTest) {
+	
+}
+
+TEST(DecoratorTest,ParenTest) {
+	
+}
+
 TEST(VectorContainerTestSet, SwapTest) {
     	// Setup the elements under test
 	Op* seven = new Op(7);
