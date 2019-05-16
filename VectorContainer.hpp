@@ -5,17 +5,17 @@
 #include "Sort.hpp"
 #include "container.hpp"
 #include <vector>
-
+using namespace std;
 class VectorContainer : public Container
 {
     protected:
-        Sort* sort;
+        Sort* sortt;
         vector<Base*> vcontainer;
 
     public:
         /* Constructors */
-        VectorContainer() : s(nullptr) { };
-        VectorContainer(Sort* function) : s(function) { };
+        VectorContainer() : sortt(nullptr) { };
+        VectorContainer(Sort* function) : sortt(function) { };
 
         /* Pure Virtual Functions */
         // push the top pointer of the tree into container
