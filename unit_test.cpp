@@ -61,12 +61,18 @@ TEST(DecoratorTest,TruncTest) {
      Sub* sub1 = new Sub(op2,op3);
      Trunc* trunc1 = new Trunc(sub1);
      Add* add1 = new Add(op1,trunc1);
-     EXPECT_EQ(add1->stringify(),"5+3");
+     EXPECT_EQ(add1->stringify(),"5.000000+4.000000");
      
 }
 
 TEST(DecoratorTest,ParenTest) {
-	
+     Op* op1 = new Op(5);
+     Op* op2 = new Op(7);
+     Op* op3 = new Op(4);
+     Sub* sub1 = new Sub(op2,op3);
+     Paren* trunc1 = new Paren(sub1);
+     Add* add1 = new Add(op1,trunc1);
+     EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)";
 }
 
 TEST(VectorContainerTestSet, SwapTest) {
