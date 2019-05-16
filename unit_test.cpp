@@ -30,8 +30,8 @@ TEST(DecoratorTest,CeilTest) {
     // Exercise some functionality of the  test elements
     test_container->add_element(cop1);
     test_container->add_element(cop2);
-    ASSERT_EQ(cop1->evaluate(),-2.0);
-    ASSERT_EQ(cop2->evaluate(),7.0);
+    ASSERT_EQ(test_container->at(0)->evaluate(),-2.0);
+    ASSERT_EQ(test_container->at(1)->evaluate(),7.0);
 }
 
 TEST(DecoratorTest,FloorTest) {
