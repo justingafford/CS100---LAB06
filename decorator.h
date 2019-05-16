@@ -15,6 +15,7 @@ class Ceil : public Base
     public: 
         Ceil(Base* cory) : core(cory){};
         double evaluate();
+        string stringify() {};
 };
 
 class Floor : public Base
@@ -24,6 +25,7 @@ class Floor : public Base
     public: 
         Floor(Base* cory) : core(cory){};
         double evaluate();
+        string stringify() {};
 };
 
 class Abs : public Base
@@ -33,6 +35,7 @@ class Abs : public Base
     public: 
         Abs(Base* cory) : core(cory){};
         double evaluate();
+        string stringify() {};
 };
 
 class Trunc : public Base
@@ -41,7 +44,8 @@ class Trunc : public Base
         Base* core;
     public: 
         Trunc(Base* cory) : core(cory){};
-        string stringify(); 
+        string stringify();
+        double evaluate() {};
 };
 
 class Paren : public Base
@@ -50,7 +54,8 @@ class Paren : public Base
         Base* core;
     public: 
         Paren(Base* cory) : core(cory){};
-        string stringify(); 
+        string stringify();
+        double evaluate() {};
 };
 
 #endif
