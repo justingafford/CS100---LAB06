@@ -9,7 +9,7 @@ class SelectionSort : public Sort {
         SelectionSort () {};
 
         /* Pure Virtual Functions */
-        void SelectionSort(Container* container);
+        void sort(Container* container);
 };
 
 #endif
