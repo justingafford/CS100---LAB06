@@ -13,7 +13,7 @@ class Ceil : public Base
     protected:
         Base* core;
     public: 
-        Ceil(Base* core) : core(cory){};
+        Ceil(Base* cory) : core(cory){};
         double evaluate();
 };
 
