@@ -41,7 +41,7 @@ TEST(DecoratorTest,FloorTest) {
     
     Floor* cop1 = new Floor(op1);
     Floor* cop2 = new Floor(op2);
-    EXPECT_EQ(cop1->evaluate(),2.0);
+    EXPECT_EQ(cop1->evaluate(),-3.0);
     EXPECT_EQ(cop2->evaluate(),6.0);	
 }
 
