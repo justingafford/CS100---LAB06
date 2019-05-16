@@ -23,6 +23,5 @@ double Trunc::evaluate()
 double Paren::evaluate()
 {
     string temp = "(" + core->stringify() + ")";
-    cout << temp;
-    return 0;
+    return temp;
 }
