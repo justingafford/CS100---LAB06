@@ -18,19 +18,46 @@
 using namespace std;
 
 TEST(DecoratorTest,CeilTest) {
-	
+    Op* op1 = new Op(-2.3);
+    Op* op2 = new Op(6.9);
+    
+    
+    Ceil* cop1 = new Ceil(op1);
+    Ceil* cop2 = new Ceil(op2);
+    EXPECT_EQ(cop1->evaluate(),-2.0);
+    EXPECT_EQ(cop2->evaluate(),7.0);
 }
 
 TEST(DecoratorTest,FloorTest) {
-	
+    Op* op1 = new Op(-2.3);
+    Op* op2 = new Op(6.9);
+    
+    
+    Floor* cop1 = new Floor(op1);
+    Floor* cop2 = new Floor(op2);
+    EXPECT_EQ(cop1->evaluate(),2.0);
+    EXPECT_EQ(cop2->evaluate(),6.0);	
 }
 
 TEST(DecoratorTest,AbsTest) {
-	
+    Op* op1 = new Op(-2.3);
+    Op* op2 = new Op(6.9);
+    
+    
+    Abs* cop1 = new Abs(op1);
+    Abs* cop2 = new Abs(op2);
+    EXPECT_EQ(cop1->evaluate(),2.3);
+    EXPECT_EQ(cop2->evaluate(),6.9);	
 }
 
 TEST(DecoratorTest,TruncTest) {
-	
+     Op* op1 = new Op(5);
+     Op* op2 = new Op(7);
+     Op* op3 = new Op(4);
+     Sub* sub1 = Sub Op(op2,op3);
+     Trunc* trunc1 = new Trunc(sub1);
+     Add* add1 = new Op(op1,sub1);
+     
 }
 
 TEST(DecoratorTest,ParenTest) {
