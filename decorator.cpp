@@ -1,26 +1,26 @@
 #include "decorator.h"
 
-virtual double Ceil::evaluate()
+double Ceil::evaluate()
 {
     return ceil(core->evaluate());
 }
 
-virtual double Floor::evaluate()
+double Floor::evaluate()
 {
     return floor(core->evaluate());
 }
 
-virtual double Abs::evaluate()
+double Abs::evaluate()
 {
     return abs(core->evaluate());
 }
 
-virtual string Trunc::stringify()
+string Trunc::stringify()
 {
     return to_string(core->evaluate());
 }
 
-virtual string Paren::stringify()
+string Paren::stringify()
 {
     return to_string("(" + core + ")");
 }
