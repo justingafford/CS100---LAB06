@@ -2,7 +2,7 @@
 #define BUBBLESORT_HPP
 
 #include "Sort.hpp"
-
+#include "container.hpp"
 class BubbleSort : public Sort {
     public:
         /* Constructors */
