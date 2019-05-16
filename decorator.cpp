@@ -1,4 +1,4 @@
-#inlcude "decorator.h"
+#include "decorator.h"
 
 virtual double Ceil::evaluate()
 {
