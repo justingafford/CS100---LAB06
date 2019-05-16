@@ -2,7 +2,10 @@
 #define DECORATOR_H
 
 #include <math.h>
+#include <string>
 #include "base.hpp"
+
+using namespace std;
 
 class Decorator : public Base
 {
@@ -12,42 +15,42 @@ class Decorator : public Base
     public:
         Decorator(Base* core){};
         virtual double evaluate() = 0;
-        virtual std::string stringify() = 0;
+        virtual string stringify() = 0;
 };
 
 class Ceil : public Decorator
 {
     public: 
         Ceil(Base* core) : Decorator(core){};
-        virtual double evaluate(); 
+        double evaluate(); 
 };
 
 class Floor : public Decorator
 {
     public: 
         Floor(Base* core) : Decorator(core){};
-        virtual double evaluate(); 
+        double evaluate(); 
 };
 
 class Abs : public Decorator
 {
     public: 
         Abs(Base* core) : Decorator(core){};
-        virtual double evaluate(); 
+        double evaluate(); 
 };
 
 class Trunc : public Decorator
 {
     public: 
         Trunc(Base* core) : Decorator(core){};
-        virtual std::string stringify(); 
+        string stringify(); 
 };
 
 class Paren : public Decorator
 {
     public: 
         Paren(Base* core) : Decorator(core){};
-        virtual std::string stringify(); 
+        string stringify(); 
 };
 
 #endif
