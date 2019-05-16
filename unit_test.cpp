@@ -25,6 +25,8 @@ TEST(DecoratorTest,CeilTest) {
     Ceil* cop1 = new Ceil(op1);
     Ceil* cop2 = new Ceil(op2);
     cout << "after ops"<< endl;
+    cout << cop1->evaluate() << endl;
+    cout << cop1->evaluate() << endl;    
     ASSERT_EQ(cop1->evaluate(),-2.0);
     ASSERT_EQ(cop2->evaluate(),7.0);
 }
