@@ -1,6 +1,7 @@
 #include "ListContainer.hpp"
 #include <list>
 #include <algorithm>
+#include <iostream>
 #include <iterator>
 using namespace std;
 
