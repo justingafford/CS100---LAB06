@@ -1,7 +1,7 @@
 #include <math.h>
 #inlcude "base.h"
 
-class Decorator : publec Base
+class Decorator : public Base
 {
     protected:
         Base* core;
