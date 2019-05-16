@@ -35,7 +35,7 @@ class Abs : public Base
         double evaluate();
 };
 
-class Trunc : public Decorator
+class Trunc : public Base
 {
     protected:
         Base* core;
@@ -44,7 +44,7 @@ class Trunc : public Decorator
         string stringify(); 
 };
 
-class Paren : public Decorator
+class Paren : public Base
 {
     protected:
         Base* core;
