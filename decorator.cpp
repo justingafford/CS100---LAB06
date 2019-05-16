@@ -22,5 +22,5 @@ string Trunc::stringify()
 
 string Paren::stringify()
 {
-    return to_string("(" + core->evaluate() + ")";
+    return to_string("(" + core->stringify() + ")";
 }
