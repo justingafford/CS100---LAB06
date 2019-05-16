@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SelectionSort.hpp"
 
-void SelectionSort::SelectionSort(Container* container) {
+void SelectionSort::sort(Container* container) {
 	for (unsigned i = 0; i < container->size(); i++) {
 		unsigned index = i;
 		for (unsigned j = i + 1; j < container -> size(); ++j) {
