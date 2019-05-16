@@ -12,7 +12,7 @@
 #include "SelectionSort.hpp"
 #include "Sort.hpp"
 #include "BubbleSort.hpp"
-#include "decorator.hpp"
+#include "decorator.h"
 #include "gtest/gtest.h"
 #include<iostream>
 using namespace std;
