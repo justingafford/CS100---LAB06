@@ -7,7 +7,7 @@ class Decorator : public Base
         Base* core;
 
     public:
-        Decorator(Base* core);
+        Decorator(Base* core){};
         virtual double evaluate() = 0;
         virtual std::string stringify() = 0;
 }
