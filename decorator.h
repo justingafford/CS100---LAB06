@@ -44,8 +44,8 @@ class Trunc : public Base
         Base* core;
     public: 
         Trunc(Base* cory) : core(cory){};
-        string stringify() {};
-        double evaluate();
+        string stringify();
+        double evaluate() {};
 };
 
 class Paren : public Base
@@ -54,8 +54,8 @@ class Paren : public Base
         Base* core;
     public: 
         Paren(Base* cory) : core(cory){};
-        string stringify() {};
-        string evaluate();
+        string stringify();
+        double evaluate() {};
 };
 
 #endif
