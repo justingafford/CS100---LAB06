@@ -89,7 +89,7 @@ TEST(CombinedTests,MultipleDecorators) {
 TEST(CombinedTests,DecoratorTree) {
      Op* op1 = new Op(4.2);
      Op* op2 = new Op(7.7);
-     Op* op3 = new Abs(6.9);
+     Op* op3 = new Op(6.9);
      Add* add1 = new Add(op1,op2);
      Ceil* ceil1 = new Ceil(add1);
      EXPECT_EQ(ceil1->evaluate(), 12);
