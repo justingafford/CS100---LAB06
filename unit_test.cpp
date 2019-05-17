@@ -74,7 +74,7 @@ TEST(DecoratorTest,ParenTest) {
      EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)");
 }
 
-TEST(DecoratorTest,CombinedTest) {
+TEST(CombinedTests,MultipleDecorators) {
      Op* op1 = new Op(-4.2);
      Op* op2 = new Op(7.7);
      Abs* abs1 = new Abs(op1);
@@ -84,6 +84,20 @@ TEST(DecoratorTest,CombinedTest) {
      EXPECT_EQ(flr2->evaluate(), 4.000000);
      EXPECT_EQ(ceil1->evaluate(), 7.000000);
     
+}
+
+TEST(CombinedTests,DecoratorTree) {
+     Op* op1 = new Op(4.2);
+     Op* op2 = new Op(7.7);
+     Op* op3 = new Abs(6.9);
+     Add* add1 = new Add(op1,op2);
+     Ceil* ceil1 = new Ceil(add1);
+     EXPECT_EQ(ceil1->evaluate(), 12);
+     Sub* sub1 = new Sub*(ceil1,op3);
+     EXPECT_EQ(sub1->evaluate(), 5.1);
+     Floor* floor1 = new Floor(sub1);
+     EXPECT_EQ(floor1->evaluate(), 5);
+
 }
 
 TEST(ArithTest, OpNumber)  {
