@@ -23,6 +23,6 @@ double Trunc::evaluate()
 double Paren::evaluate()
 {
     string temp = "(" + core->evaluate() + ")";
-    double par = stod
+    double par = static_cast<double>temp;
     return par;
 }
