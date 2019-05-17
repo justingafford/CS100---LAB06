@@ -93,7 +93,7 @@ TEST(CombinedTests,DecoratorTree) {
      Add* add1 = new Add(op1,op2);
      Ceil* ceil1 = new Ceil(add1);
      EXPECT_EQ(ceil1->evaluate(), 12);
-     Sub* sub1 = new Sub*(ceil1,op3);
+     Sub* sub1 = new Sub(ceil1,op3);
      EXPECT_EQ(sub1->evaluate(), 5.1);
      Floor* floor1 = new Floor(sub1);
      EXPECT_EQ(floor1->evaluate(), 5);
