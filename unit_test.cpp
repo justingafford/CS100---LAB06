@@ -62,7 +62,7 @@ TEST(DecoratorTest,TruncTest) {
      Trunc* trunc1 = new Trunc(sub1);
      Add* add1 = new Add(op1,trunc1);
      EXPECT_EQ(add1->stringify(),"6.000000+5.000000");
-     EXPECT_EQ(add1->evaluate(), "1.000000");
+     EXPECT_EQ(add1->evaluate(), 1.000000);
      
 }
 
@@ -74,47 +74,49 @@ TEST(DecoratorTest,ParenTest) {
      Paren* trunc1 = new Paren(sub1);
      Add* add1 = new Add(op1,trunc1);
      EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)");
-     EXPECT_EQ(add1->evaluate(), "8.000000");
+     EXPECT_EQ(add1->evaluate(), 8.000000);
 }
 
 TEST(DecoratorTest,CombinedTest) {
-    Op* op1 = new Op(-4.2);
-    Op* op2 = new Op(7.7);
-    Abs* abs1 = new Abs(op1);
-    Floor* flr1 = new Floor(op2);
-    Floor* flr2 = new Floor(abs1);
-    Ceil* ceil1 = new Ceil(flr1);
+     Op* op1 = new Op(-4.2);
+     Op* op2 = new Op(7.7);
+     Abs* abs1 = new Abs(op1);
+     Floor* flr1 = new Floor(op2);
+     Floor* flr2 = new Floor(abs1);
+     Ceil* ceil1 = new Ceil(flr1);
+     EXPECT_EQ(flr2->evaluate(), 4.000000);
+     EXPECT_EQ(ceil1->evaluate(), 8.000000);
     
 }
 
 TEST(ArithTest, OpNumber)  {
 
-   Op* op1 = new Op(5.0); 
-   Op* op2 = new Op(7.0); 
-   Op* op3 = new Op(2.0); 
+    Op* op1 = new Op(5.0); 
+    Op* op2 = new Op(7.0); 
+    Op* op3 = new Op(2.0); 
 
-   EXPECT_EQ(op1 -> evaluate(), 5.0);
-   EXPECT_EQ(op1 ->stringify(), "5.000000");
+    EXPECT_EQ(op1 -> evaluate(), 5.0);
+    EXPECT_EQ(op1 ->stringify(), "5.000000");
 
-   Add* add1 = new Add(op1, op2);
-   EXPECT_EQ(add1->evaluate(), 12);
-   EXPECT_EQ(add1->stringify(), "5.000000+7.000000");
+    Add* add1 = new Add(op1, op2);
+    EXPECT_EQ(add1->evaluate(), 12);
+    EXPECT_EQ(add1->stringify(), "5.000000+7.000000");
 
-   Sub* sub1 = new Sub(add1 , op2);
-   EXPECT_EQ(sub1->evaluate(), 5);
-   EXPECT_EQ(sub1->stringify(), "12.000000-7.000000");
+    Sub* sub1 = new Sub(add1 , op2);
+    EXPECT_EQ(sub1->evaluate(), 5);
+    EXPECT_EQ(sub1->stringify(), "12.000000-7.000000");
 
-   Mult* mult1 = new Mult(sub1 , op3);
-   EXPECT_EQ(mult1  ->evaluate(),  10);
-   EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
+    Mult* mult1 = new Mult(sub1 , op3);
+    EXPECT_EQ(mult1  ->evaluate(),  10);
+    EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
 
-   Div* div1 = new Div(mult1  , op3);
-   EXPECT_EQ(div1  ->evaluate(),  5);
-   EXPECT_EQ(div1  ->stringify(), "10.000000/2.000000");
+    Div* div1 = new Div(mult1  , op3);
+    EXPECT_EQ(div1  ->evaluate(),  5);
+    EXPECT_EQ(div1  ->stringify(), "10.000000/2.000000");
 
-   Pow* pow1 = new Pow(div1, op3);
-   EXPECT_EQ(pow1  ->evaluate(),  25);
-   EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
+    Pow* pow1 = new Pow(div1, op3);
+    EXPECT_EQ(pow1  ->evaluate(),  25);
+    EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
 }
 
 
