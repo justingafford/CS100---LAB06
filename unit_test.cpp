@@ -61,9 +61,7 @@ TEST(DecoratorTest,TruncTest) {
      Sub* sub1 = new Sub(op2,op3);
      Trunc* trunc1 = new Trunc(sub1);
      Add* add1 = new Add(op1,trunc1);
-     EXPECT_EQ(add1->stringify(),"6.000000+5.000000");
-     EXPECT_EQ(add1->evaluate(), 11);
-     
+     EXPECT_EQ(add1->stringify(),"6.000000+5.000000");    
 }
 
 TEST(DecoratorTest,ParenTest) {
@@ -74,7 +72,6 @@ TEST(DecoratorTest,ParenTest) {
      Paren* trunc1 = new Paren(sub1);
      Add* add1 = new Add(op1,trunc1);
      EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)");
-     EXPECT_EQ(add1->evaluate(), 8);
 }
 
 TEST(DecoratorTest,CombinedTest) {
