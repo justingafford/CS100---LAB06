@@ -7,6 +7,6 @@ using namespace std;
 		return pow(L1 -> evaluate() , L2 -> evaluate());
 	}
 	string Pow::stringify() {
-		return to_string(L1 -> evaluate()) + "**" + to_string(L2 -> evaluate());
+		return to_string(L1 -> stringify() + "**" + L2 -> stringify());
 	}
 
