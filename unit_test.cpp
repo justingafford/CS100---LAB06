@@ -85,7 +85,7 @@ TEST(DecoratorTest,CombinedTest) {
      Floor* flr2 = new Floor(abs1);
      Ceil* ceil1 = new Ceil(flr1);
      EXPECT_EQ(flr2->evaluate(), 4.000000);
-     EXPECT_EQ(ceil1->evaluate(), 8.000000);
+     EXPECT_EQ(ceil1->evaluate(), 7.000000);
     
 }
 
@@ -104,19 +104,19 @@ TEST(ArithTest, OpNumber)  {
 
     Sub* sub1 = new Sub(add1 , op2);
     EXPECT_EQ(sub1->evaluate(), 5);
-    EXPECT_EQ(sub1->stringify(), "12.000000-7.000000");
+    EXPECT_EQ(sub1->stringify(), "5.000000+7.000000-7.000000");
 
     Mult* mult1 = new Mult(sub1 , op3);
     EXPECT_EQ(mult1  ->evaluate(),  10);
-    EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
+    EXPECT_EQ(mult1  ->stringify(), "5.000000+7.000000-7.000000*2.000000");
 
     Div* div1 = new Div(mult1  , op3);
     EXPECT_EQ(div1  ->evaluate(),  5);
-    EXPECT_EQ(div1  ->stringify(), "10.000000/2.000000");
+    EXPECT_EQ(div1  ->stringify(), "5.000000+7.000000-7.000000*2.000000/2.000000");
 
     Pow* pow1 = new Pow(div1, op3);
     EXPECT_EQ(pow1  ->evaluate(),  25);
-    EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
+    EXPECT_EQ(pow1  ->stringify(), "5.000000+7.000000-7.000000*2.000000/2.000000**2.000000");
 }
 
 
