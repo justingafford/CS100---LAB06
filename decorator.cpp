@@ -15,12 +15,12 @@ double Abs::evaluate()
     return abs(core->evaluate());
 }
 
-double Trunc::evaluate()
+string Trunc::stringify()
 {
-    return core->evaluate();
+    return to_string(core->evaluate());
 }
 
-string Paren::evaluate()
+string Paren::stringify()
 {
     string temp = "(" + core->stringify() + ")";
     return temp;
