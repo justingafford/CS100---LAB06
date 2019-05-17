@@ -9,6 +9,6 @@ double Div::evaluate() {
 }
 
 string Div::stringify() {
-	return to_string(L1 ->evaluate()) + "/" + to_string(L2 ->evaluate());
+	return to_string(L1 ->stringify()) + "/" + L2 ->stringify());
 }
 
