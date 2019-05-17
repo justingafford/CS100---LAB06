@@ -55,13 +55,14 @@ TEST(DecoratorTest,AbsTest) {
 }
 
 TEST(DecoratorTest,TruncTest) {
-     Op* op1 = new Op(5);
-     Op* op2 = new Op(7);
+     Op* op1 = new Op(6);
+     Op* op2 = new Op(9);
      Op* op3 = new Op(4);
      Sub* sub1 = new Sub(op2,op3);
      Trunc* trunc1 = new Trunc(sub1);
      Add* add1 = new Add(op1,trunc1);
-     EXPECT_EQ(add1->stringify(),"5.000000+3.000000");
+     EXPECT_EQ(add1->stringify(),"6.000000+5.000000");
+     EXPECT_EQ(add1->evaluate(), "1.000000");
      
 }
 
@@ -73,92 +74,50 @@ TEST(DecoratorTest,ParenTest) {
      Paren* trunc1 = new Paren(sub1);
      Add* add1 = new Add(op1,trunc1);
      EXPECT_EQ(add1->stringify(),"5.000000+(7.000000-4.000000)");
+     EXPECT_EQ(add1->evaluate(), "8.000000");
 }
 
-TEST(VectorContainerTestSet, SwapTest) {
-    	// Setup the elements under test
-	Op* seven = new Op(7);
-	Op* two = new Op(2);
-       	VectorContainer* test_container = new VectorContainer();
+TEST(DecoratorTest,CombinedTest) {
+    Op* op1 = new Op(-4.2);
+    Op* op2 = new Op(7.7);
+    Abs* abs1 = new Abs(op1);
+    Floor* flr1 = new Floor(op2);
+    Floor* flr2 = new Floor(abs1);
+    Ceil* ceil1 = new Ceil(flr1);
     
-       	// Exercise some functionality of the  test elements
-   	test_container->add_element(seven);
-	test_container->add_element(two);
-    
-      	// Assert that the container has at least a single element
-   	// otherwise we are likely to cause a segfault when accessing
-    	ASSERT_EQ(test_container->size(), 2);
-       	EXPECT_EQ(test_container->at(0)->evaluate(), 7);
-	EXPECT_EQ(test_container->at(1)->evaluate(), 2);
-	
-	test_container->swap(0, 1);
-	EXPECT_EQ(test_container->at(1)->evaluate(), 7);
-	EXPECT_EQ(test_container->at(0)->evaluate(), 2);
 }
 
-TEST(SortTestSet, VSelectionSortTest) {
-    Op* seven = new Op(7);
-    Op* four = new Op(4);
-    Mult* TreeA = new Mult(seven, four);
+TEST(ArithTest, OpNumber)  {
 
-    Op* three = new Op(3);
-    Op* two = new Op(2);
-    Add* TreeB = new Add(three, two);
+   Op* op1 = new Op(5.0); 
+   Op* op2 = new Op(7.0); 
+   Op* op3 = new Op(2.0); 
 
-    Op* ten = new Op(10);
-    Op* six = new Op(6);
-    Sub* TreeC = new Sub(ten, six);
+   EXPECT_EQ(op1 -> evaluate(), 5.0);
+   EXPECT_EQ(op1 ->stringify(), "5.000000");
 
-    VectorContainer* container = new VectorContainer();
-    container->add_element(TreeA);
-    container->add_element(TreeB);
-    container->add_element(TreeC);
+   Add* add1 = new Add(op1, op2);
+   EXPECT_EQ(add1->evaluate(), 12);
+   EXPECT_EQ(add1->stringify(), "5.000000+7.000000");
 
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 28);
-    EXPECT_EQ(container->at(1)->evaluate(), 5);
-    EXPECT_EQ(container->at(2)->evaluate(), 4);
+   Sub* sub1 = new Sub(add1 , op2);
+   EXPECT_EQ(sub1->evaluate(), 5);
+   EXPECT_EQ(sub1->stringify(), "12.000000-7.000000");
 
-    container->set_sort_function(new SelectionSort());
-    container->sort();
+   Mult* mult1 = new Mult(sub1 , op3);
+   EXPECT_EQ(mult1  ->evaluate(),  10);
+   EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
 
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 4);
-    EXPECT_EQ(container->at(1)->evaluate(), 5);
-    EXPECT_EQ(container->at(2)->evaluate(), 28);
+   Div* div1 = new Div(mult1  , op3);
+   EXPECT_EQ(div1  ->evaluate(),  5);
+   EXPECT_EQ(div1  ->stringify(), "10.000000/2.000000");
+
+   Pow* pow1 = new Pow(div1, op3);
+   EXPECT_EQ(pow1  ->evaluate(),  25);
+   EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
 }
 
-TEST(SortTestSet, VBubbleSortTest) {
-    Op* one = new Op(1);
-    Op* four = new Op(4);
-    Mult* TreeA = new Mult(one, four);
 
-    Op* zero = new Op(0);
-    Op* two = new Op(2);
-    Add* TreeB = new Add(zero, two);
-
-    Op* six = new Op(6);
-    Op* sixx = new Op(6);
-    Sub* TreeC = new Sub(six, sixx);
-
-    VectorContainer* container = new VectorContainer();
-    container->add_element(TreeA);
-    container->add_element(TreeB);
-    container->add_element(TreeC);
-
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 4);
-    EXPECT_EQ(container->at(1)->evaluate(), 2);
-    EXPECT_EQ(container->at(2)->evaluate(), 0);
-
-    container->set_sort_function(new BubbleSort());
-    container->sort();
-
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 0);
-    EXPECT_EQ(container->at(1)->evaluate(), 2);
-    EXPECT_EQ(container->at(2)->evaluate(), 4);
-}
 
 
 
