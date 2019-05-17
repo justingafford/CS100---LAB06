@@ -20,9 +20,8 @@ double Trunc::evaluate()
     return core->evaluate();
 }
 
-double Paren::evaluate()
+string Paren::evaluate()
 {
     string temp = "(" + core->stringify() + ")";
-    double par = static_cast<double>(temp);
-    return par;
+    return temp;
 }
