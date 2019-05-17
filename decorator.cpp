@@ -22,6 +22,7 @@ double Trunc::evaluate()
 
 double Paren::evaluate()
 {
-    string temp = "(" + core->stringify() + ")";
-    return temp;
+    string temp = "(" + core->evaluate() + ")";
+    double par = stod
+    return par;
 }
